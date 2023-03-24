@@ -26,13 +26,29 @@
         h1 {
             font-size: 100px;
             color: white;
-            animation: 3s ease-in 1s infinite reverse both running slidein;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            25% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .container1 {
             display: flex;
             justify-content: center;
-
+            animation-delay: 2.5s;
+            animation: fadeIn 3s;
+            flex-wrap: wrap;
         }
 
         #todo {
@@ -47,7 +63,10 @@
         }
 
         #add {
-            width: 5%;
+            width: 75px;
+            height: auto;
+            flex-wrap: wrap;
+            cursor: pointer;
         }
 
         ul {
@@ -61,8 +80,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
+            animation: fadeIn1 3s;
+            width: 50%;
         }
+
+        @keyframes fadeIn1 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
 
         li {
             background-color: white;
@@ -83,7 +114,6 @@
             border-radius: 25px;
             padding: 12px 20px;
             cursor: pointer;
-            margin-left: 85%;
         }
     </style>
 </head>
