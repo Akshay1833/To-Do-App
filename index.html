@@ -76,7 +76,16 @@
             align-items: center;
         }
 
-        #gone {
+        li {
+            background-color: white;
+            width: 50%;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #e4e7eb;
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 15px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -92,18 +101,6 @@
             100% {
                 opacity: 1;
             }
-        }
-
-
-        li {
-            background-color: white;
-            width: 50%;
-            border-style: solid;
-            border-width: 1px;
-            border-color: #e4e7eb;
-            border-radius: 10px;
-            margin-top: 10px;
-            padding: 15px;
         }
 
         li button {
@@ -128,25 +125,36 @@
     <img />
 
     <script>
-        const img = document.querySelector("img");
+        // const img = document.querySelector("img");
         // img.src = "delete.png"
         function addItem() {
-            todo = document.getElementById("todo");
+            const todo = document.getElementById("todo");
             const todoItem = document.createElement('li'); // dynamically creates an element 'li' and stores it in todoItem constant
-            document.getElementById("addedItem").appendChild(todoItem); // appending child (li) inside parent (ul)
-            todoItem.innerText = todo.value; // whatever the user inputs, will be added to li
-            todo.value = "" // clears user input from input element
-
             const clearItem = document.createElement('button'); // dynamically creates an element 'button' and stores it in clearItem constant
-            clearItem.innerText = "clear";
-            todoItem.setAttribute("id", "todoLi"); // gives li a temporary id of "todoLi"
-            document.getElementById("todoLi").appendChild(clearItem); // adds button element to li element
-            todoItem.setAttribute("id", "gone"); // permanentely changes li element id from "todoLi" to "gone"
 
+            todoItem.innerText = todo.value; // whatever the user inputs, will be added to li
+
+            clearItem.innerText = "clear";
             clearItem.onclick = function () {
                 clearItem.remove();
-                document.getElementById("gone").remove();
+                todoItem.remove()
+
+                // document.getElementById("gone").remove();
             };
+            todoItem.appendChild(clearItem);
+
+            document.getElementById("addedItem").appendChild(todoItem); // appending child (li) inside parent (ul)
+
+            todo.value = "" // clears user input from input element
+            todo.style.backgroundColor = "";
+
+
+
+            // todoItem.setAttribute("id", "todoLi"); // gives li a temporary id of "todoLi"
+            // document.getElementById("todoLi").appendChild(clearItem); // adds button element to li element
+            // todoItem.setAttribute("id", "gone"); // permanentely changes li element id from "todoLi" to "gone"
+
+
         }
     </script>
 
